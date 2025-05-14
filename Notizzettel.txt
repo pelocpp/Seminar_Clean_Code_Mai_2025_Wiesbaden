@@ -1,0 +1,131 @@
+======================================
+
+Clean Code C++
+
+Peter Loos
+
+Guten Morgen
+
+======================================
+
+ToDo:
+
+Brace - Init. - check
+
+Smart-Pointer:
+
+std::unique - check
+std::shared - check
+
+std::weak_ptr   "Brauchen wir selten"
+
+Exception Safety // noexcept // Exception Guarantee
+
+Literaturverzeichnis
+
+RVO - check
+
+std::move - check
+
+RAII  // Destruktoren mit Exception ?!?
+
+Named Parameter:  Builder Pattern // Fluent Programming Style.
+
+======================================
+
+Github: ==> pelocpp
+
+Point2D copy{ point }; 
+
+==
+
+Point2D copy = point; 
+
+A) Neue Syntax:  { }   Brace - Initialization
+                       Uniform - Initialization
+
+===============================================
+
+Point2D point{};
+
+vs.
+
+Point2D point;
+
+==============================================
+
+RValue:
+
+https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/RValueLValue/RValueLValue.md
+
+========================================
+
+Kritik an C++: Überflüssige Kopien.
+
+STL:  Container.
+
+========================================
+
+Move-Semantik
+
+RVO-Optimierung
+
+noexcept
+
+copy / swap
+
+emplace:  Kommt noch
+
+========================================
+
+... 140:    temp.  Objekt  // wird freigegeben
+... 1B0:    im Vector
+
+
+... 5A0:
+
+https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/MoveSemantics/MoveSemantics.md
+
+=============================================
+
+01: BigData::BigData(BigData&& data) noexcept {  // move c'tor
+02: 
+03:     m_data = data.m_data;   // shallow copy
+04:     m_size = data.m_size;
+05:     data.m_data = nullptr;  // reset source object, ownership has been moved
+06:     data.m_size = 0;
+07: }
+
+Mit Mutex !!!!!!!!!!!!!!!!!!!
+
+
+Atomic:  Nein.
+
+=======================================================
+
+std::vector:
+
+
+1
+2
+3
+4
+6
+9
+13
+19
+
+
+Regel:
+
+Neu = Alt * 1.5;
+
+// ========================================
+
+Brace Initialization:
+
+https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/BraceInitialization/BraceInitialization.md
+
+======================================
+
+
