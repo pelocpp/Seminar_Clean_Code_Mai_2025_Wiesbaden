@@ -16,11 +16,21 @@ namespace BraceInitialization {
     // Brace initialization does not allow narrowing:
     static void test_00()
     {
+        // VORSICHT !!!!!!!!!!!
+
+        std::vector<int> vec1( 10 ); // Size: 10, Elems: 0
+
+        std::vector<int> vec2{ 10 }; // Size: 1,  Elem: 10
+
+
+
         double dval{ 123.456 };
-        int ival{ 123 };
+        const int ival{ 123 };
+
+        double d0{ 123 };
 
         double d1 = ival;      // Compiles
-        // double d2{ ival };  // Error: "conversion from 'int' to 'double' requires a narrowing conversion"
+    //    double d2{ para };  // Error: "conversion from 'int' to 'double' requires a narrowing conversion"
     }
 
     // =================================================================================
@@ -29,6 +39,7 @@ namespace BraceInitialization {
     static void test_01()
     {
         int z = 0;
+
         int z1{};
 
         int n{};                   // n equals 0

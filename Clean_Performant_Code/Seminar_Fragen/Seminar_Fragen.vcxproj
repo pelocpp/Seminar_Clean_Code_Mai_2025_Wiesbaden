@@ -130,7 +130,9 @@
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="RVO.cpp" />
+    <ClCompile Include="Topic_auto.cpp" />
     <ClCompile Include="Topic_Brace_Initialization.cpp" />
+    <ClCompile Include="Topic_Generic_Functions.cpp" />
     <ClCompile Include="Topic_MoveSemantics.cpp" />
     <ClCompile Include="Topic_MoveSemantics_STL.cpp" />
     <ClCompile Include="Topic_RValue.cpp" />

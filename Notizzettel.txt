@@ -8,7 +8,55 @@ Guten Morgen
 
 ======================================
 
+ToDo Revised:
+-------------
+
+YAGNI / DRY / Prinzipien:  Vokabular / Understanding
+
+SOLID - Prinzipien
+
+Einige, ausgewählte Design Pattern:
+== Observer (std::weak_ptr)
+== Plus weitere
+== Named Parameter:  Builder Pattern // Fluent Programming Style.
+== Visitor
+
+== RAII ( 1 Stunde )
+
+== (( Testbarkeit ))
+
+== ((  15 Minuten: C++  Modul-Konzept  ))
+
+== Verständnis von Quell-Code
+
+== STL-Algorithmen  ( 2 Stunde )
+   Verständnis
+
+== for_each
+
+== Algorithmische Optimierung.
+
+== std::array vs C-Array plus std::span
+
+== std::string_view
+
+== std::initializer_list
+
+
+======================================
+
+
+
+
 ToDo:
+
+auto  // depends
+
+Lambda // so 
+
+/* constexpr */
+
+Type Traits // Typspuren // Reflection für Arme
 
 Brace - Init. - check
 
@@ -29,7 +77,8 @@ std::move - check
 
 RAII  // Destruktoren mit Exception ?!?
 
-Named Parameter:  Builder Pattern // Fluent Programming Style.
+
+// Concepts und Requirements: Wenn die Zeit reicht ...
 
 ======================================
 
@@ -127,5 +176,9 @@ Brace Initialization:
 https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/BraceInitialization/BraceInitialization.md
 
 ======================================
+
+Ist das Identisch:
+
+Cpp Insights (Andreas Fertig):
 
 
