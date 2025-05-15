@@ -9,7 +9,7 @@ Guten Morgen
 ======================================
 
 ToDo Revised:
--------------
+-------------------
 
 YAGNI / DRY / Prinzipien:  Vokabular / Understanding
 
@@ -180,5 +180,207 @@ https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/BraceInitializ
 Ist das Identisch:
 
 Cpp Insights (Andreas Fertig):
+
+======================================
+
+Single Responsibility Prinziple:
+
+Wie sieht es mit Vererbung aus: ??????????????
+
+Eher NEIN.
+
+Schnittstellenbasiertes Design:
+
+class IPersist
+{
+        void save(const std::string& filename, std::ostream& os);
+}
+
+======================================
+
+
+RAII:
+
+Background:
+
+Resources eines OS.
+
+== Socket, Mutex, SqlConnection, Win32 Handle, ...
+
+== attach, open, CreateThread, ...
+== detach, close, ReleaseHandle, ...
+
+(( new / delete ))
+
+Idee von RAII:   OO // Resource ==> Hüllenobjekt (Wrapper)
+
+Konstruktoren <=== "attach"
+Destruktoren  <===   "detach"   // Deterministischer Aufruf
+
+======================================
+
+STL Algorithmen
+=============
+
+https://github.com/pelocpp/cpp_standard_template_library/blob/master/Programs/Resources/Readme_STL_Overview.md
+
+
+Go for STL Algorithms
+
+Beobachtung:
+
+"Sperrig"
+
+== Container
+
+== "Funktionen"  ==> Container   // Enge Kopplung
+
+
+Container   <==>   Iteratoren  <==>   Algorithmen
+
+
+=====================================
+
+            int m = n;
+00007FF61F33D2BF  mov         eax,dword ptr [n]  
+00007FF61F33D2C5  mov         dword ptr [m],eax  
+
+
+
+            int m = n;
+00007FF7B287D2C0  mov         rax,qword ptr [n]  
+00007FF7B287D2C7  mov         eax,dword ptr [rax]  
+00007FF7B287D2C9  mov         dword ptr [m],eax  
+
+
+=====================================
+
+Etüde:  Einen Container mit einem konstanten Wert vorbelegen  
+
+=====================================
+
+Cache Line:
+
+https://github.com/pelocpp/cpp_clean_performant_secure/blob/master/Clean_Performant_Code/Data_Structures_and_Algorithms/Readme_Caches.md#link5
+
+=====================================
+
+Stilistik:   "Building Blocks"
+
+        std::vector<double> target;
+
+        std::transform(
+            source.begin(),
+            source.end(),
+            std::back_inserter(target),
+            [](const auto& entry) {
+                return std::stod(entry);
+            }
+        );
+
+        std::for_each(
+            target.begin(),
+            target.end(),
+            [](auto n) { std::print("{} ", n); }
+        );
+
+=====================================
+
+remove_if    
+
+Ab C++ 20:  Haben alle Container ein remove_if
+
+https://github.com/pelocpp/cpp_design_patterns/blob/master/Patterns/SOLID/Resources/OpenClosedPrinciple.md
+
+=====================================
+
+std::weak:  "Haben wir nicht"  // "Haben wir selten"
+
+Observer Pattern
+
+Subject
+
+Observer / Client
+
+Die Observer kennen das Subject. // anmelden.
+
+Ein Subject kennt ein oder mehrere Observer  // sofern sich welche angemeldet haben.
+
+Ein Subject:   std::shared_ptr
+
+Viele Observer:   std::shared_ptr
+
+
+
+Im Subject gibt es einen Container (std::vector // std::list) von den
+IOberver - Clients:
+
+Welchen Typ hat diese Container:
+
+std::list<std::weak_ptr<IObserver>> m_listObservers;
+
+Konsequenz:
+
+std::weak_ptr<IObserver> wp;
+
+std::shared_ptr sp_client  = wp.lock();
+if (sp_client == nullptr) ...  // empty
+
+=====================================
+
+Algorithmen:
+
+A) Glob.Funktion
+
+B) Aufrufbares Objekt - operator ()  
+
+   ===> Warum mit operator():  Ist einfach eine Methode OHNE Namen.
+
+C) Lambda
+
+=====================================
+
+std::variant:  
+
+Utility-Klasse:
+
+Kann mehrere Daten unterschiedlichen Typs halten,
+aber zu einem Zeitpunkt nur EIN Datum / einen Wert.
+
+Beispiel: Excel-Anwendung:   Zellen  / Cell.
+
+Zeichenkette, Datum, Currency, Float, Numerischer Wert.
+
+std::variant: Am Stack !!!
+
+
+std::any   : Wie std::variant, nur ohne Angabe der Datentypen.
+
+
+
+===============================================
+
+std::vector <int> :  Homogener Container
+
+Heterogener Container.    
+
+
+
+===============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

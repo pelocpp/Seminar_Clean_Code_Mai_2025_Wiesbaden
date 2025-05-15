@@ -48,11 +48,23 @@ namespace STLAlgorithms {
     {
         auto values = std::vector<int>(10);
 
+        auto m = 123;
+
         std::generate(
             values.begin(),
             values.end(),
-            [n = 0]() mutable { ++n;  return 2 * n; }
+            [=, n = 0, x = std::pair<int, int>(1, 2)]() mutable { m++;  ++n;  return 2 * n; }
         );
+
+        auto y = std::pair<int, int>(1, 2);
+
+        std::generate(
+            values.begin(),
+            values.end(),
+            [x = std::move(y)]() mutable { return x.first;  }
+        );
+
+        //x = 
 
         std::for_each(
             values.begin(),
@@ -87,12 +99,16 @@ namespace STLAlgorithms {
     static void test_copying()
     {
         std::vector<int> source(10, 123);
-        std::vector<int> target(10);
+        // std::vector<int> target(10);
+        std::vector<int> target(5);
 
+        // std::copy: uses operator[]
+        // std::back_inserter :  push_back
         std::copy(
             source.begin(),
             source.end(),
-            target.begin()
+            // target.begin()
+            std::back_inserter (target)
         );
 
         std::for_each(

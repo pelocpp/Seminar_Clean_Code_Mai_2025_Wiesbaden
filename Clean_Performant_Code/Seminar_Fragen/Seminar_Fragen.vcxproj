@@ -119,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,8 +129,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\LoggerUtility\Logger.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="RVO.cpp" />
+    <ClCompile Include="Topic_Algorithms.cpp" />
     <ClCompile Include="Topic_auto.cpp" />
     <ClCompile Include="Topic_Brace_Initialization.cpp" />
     <ClCompile Include="Topic_Generic_Functions.cpp" />

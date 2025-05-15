@@ -8,10 +8,11 @@ void test_exercises_move_semantics();
 void main_unique_ptr();
 void main_brace_initialization();
 void main_generic_functions();
+void main_algorithms();
 
 int main()
 {
-    main_generic_functions();
+    main_algorithms();
     return 0;
 }
 
