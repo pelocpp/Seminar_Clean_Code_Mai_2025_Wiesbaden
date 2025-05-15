@@ -4,6 +4,9 @@ Clean Code C++
 
 Peter Loos
 
+peter.loos@gmx.de
+-----------------
+
 Guten Morgen
 
 ======================================
